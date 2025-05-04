@@ -3,124 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Tracker</title>
+    <title>Notion-Style Budget Tracker</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="paper">
-        <div class="margin">
-            <h1>Month: <input type="text" id="month" class="fancy-font" placeholder="e.g. January 2023"></h1>
-            
-            <div class="section">
-                <h2>a. Income</h2>
-                <div class="input-group">
-                    <label for="salary">i. Salary:</label>
-                    <input type="number" id="salary" class="income-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="returns">ii. Returns:</label>
-                    <input type="number" id="returns" class="income-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="other-income1">iii. Other Income:</label>
-                    <input type="number" id="other-income1" class="income-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="other-income2">iv. Other Income:</label>
-                    <input type="number" id="other-income2" class="income-input" placeholder="$0.00">
-                </div>
-                <div class="total">
-                    <strong>Total Income: <span id="total-income">$0.00</span></strong>
-                </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="month-heading">Month: <input type="text" id="month" class="month-input" placeholder="e.g. January 2023"></h1>
+        </div>
+        
+        <div class="budget-section">
+            <h2>Income</h2>
+            <div class="input-group">
+                <label for="salary">Salary:</label>
+                <input type="number" id="salary" class="income-input" placeholder="0.00">
             </div>
-            
-            <div class="section">
-                <h2>b. Expenses</h2>
-                <div class="input-group">
-                    <label for="charity">i. Charity:</label>
-                    <input type="number" id="charity" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="groceries">ii. Groceries:</label>
-                    <input type="number" id="groceries" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="credit-cards">iii. Credit Cards:</label>
-                    <input type="number" id="credit-cards" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="entertainment">iv. Entertainment:</label>
-                    <input type="number" id="entertainment" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="investments">v. Investments:</label>
-                    <input type="number" id="investments" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="other-expense1">vi. Other Expense:</label>
-                    <input type="number" id="other-expense1" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="input-group">
-                    <label for="other-expense2">vii. Other Expense:</label>
-                    <input type="number" id="other-expense2" class="expense-input" placeholder="$0.00">
-                </div>
-                <div class="total">
-                    <strong>Total Expenses: <span id="total-expenses">$0.00</span></strong>
-                </div>
+            <div class="input-group">
+                <label for="returns">Returns:</label>
+                <input type="number" id="returns" class="income-input" placeholder="0.00">
             </div>
-            
-            <div class="section">
-                <h2>Savings & Balance</h2>
-                <div class="input-group">
-                    <label for="last-month-balance">Last Month Balance:</label>
-                    <input type="number" id="last-month-balance" placeholder="$0.00">
-                </div>
-                <div class="total">
-                    <strong>Total Savings: <span id="total-savings">$0.00</span></strong>
-                </div>
-                <div class="total">
-                    <strong>Total Amount in Bank: <span id="total-amount">$0.00</span></strong>
-                </div>
+            <div class="input-group">
+                <label for="other-income1"><input type="text" id="other-income-label1" placeholder="Other source" class="label-input">:</label>
+                <input type="number" id="other-income1" class="income-input" placeholder="0.00">
             </div>
-            
-            <div class="section">
-                <h2>Future Savings Goals</h2>
-                <div class="savings-goals">
-                    <div class="goal">
-                        <label for="home-saving">Home:</label>
-                        <input type="number" id="home-saving" class="goal-input" placeholder="$0.00">
-                        <span class="goal-progress">0%</span>
-                    </div>
-                    <div class="goal">
-                        <label for="car-saving">Car:</label>
-                        <input type="number" id="car-saving" class="goal-input" placeholder="$0.00">
-                        <span class="goal-progress">0%</span>
-                    </div>
-                    <div class="goal">
-                        <label for="retirement-saving">Retirement:</label>
-                        <input type="number" id="retirement-saving" class="goal-input" placeholder="$0.00">
-                        <span class="goal-progress">0%</span>
-                    </div>
-                    <div class="goal">
-                        <label for="vacation-saving">Vacation:</label>
-                        <input type="number" id="vacation-saving" class="goal-input" placeholder="$0.00">
-                        <span class="goal-progress">0%</span>
-                    </div>
-                </div>
-                <button id="allocate-btn">Allocate Savings to Goals</button>
+            <div class="input-group">
+                <label for="other-income2"><input type="text" id="other-income-label2" placeholder="Other source" class="label-input">:</label>
+                <input type="number" id="other-income2" class="income-input" placeholder="0.00">
             </div>
-            
-            <div class="actions">
-                <button id="save-btn">Save Budget</button>
-                <button id="reset-btn">Reset</button>
-                <button id="print-btn">Print</button>
-                <button id="download-btn">Download as Image</button>
+            <div class="total">
+                <strong>Total Income:</strong> <span id="total-income">0.00</span>
             </div>
         </div>
+        
+        <div class="budget-section">
+            <h2>Expenses</h2>
+            <div class="input-group">
+                <label for="charity">Charity:</label>
+                <input type="number" id="charity" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="groceries">Groceries:</label>
+                <input type="number" id="groceries" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="credit-cards">Credit Cards:</label>
+                <input type="number" id="credit-cards" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="entertainment">Entertainment:</label>
+                <input type="number" id="entertainment" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="investments">Investments:</label>
+                <input type="number" id="investments" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="other-expense1"><input type="text" id="other-expense-label1" placeholder="Other expense" class="label-input">:</label>
+                <input type="number" id="other-expense1" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="other-expense2"><input type="text" id="other-expense-label2" placeholder="Other expense" class="label-input">:</label>
+                <input type="number" id="other-expense2" class="expense-input" placeholder="0.00">
+            </div>
+            <div class="total">
+                <strong>Total Expenses:</strong> <span id="total-expenses">0.00</span>
+            </div>
+        </div>
+        
+        <div class="budget-section">
+            <h2>Savings & Goals</h2>
+            <div class="input-group">
+                <label for="last-month-balance">Last Month Balance:</label>
+                <input type="number" id="last-month-balance" placeholder="0.00">
+            </div>
+            <div class="total">
+                <strong>Total Savings:</strong> <span id="total-savings">0.00</span>
+            </div>
+            <div class="total">
+                <strong>Total Amount in Bank:</strong> <span id="total-bank">0.00</span>
+            </div>
+            
+            <h3 style="margin-top: 20px;">Savings Goals</h3>
+            <div class="input-group">
+                <label for="home-fund">Home Fund:</label>
+                <input type="number" id="home-fund" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="car-fund">Car Fund:</label>
+                <input type="number" id="car-fund" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label for="investment-fund">Investment Fund:</label>
+                <input type="number" id="investment-fund" placeholder="0.00">
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button class="button button-primary" id="calculate-btn">Calculate</button>
+            <button class="button" id="reset-btn">Reset</button>
+            <button class="button" id="save-btn">Save Data</button>
+        </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
