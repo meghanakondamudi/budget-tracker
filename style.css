@@ -1,0 +1,188 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    color: #333;
+}
+
+.paper {
+    background-color: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 100vh;
+}
+
+.margin {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 0 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.fancy-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 1px dashed #aaa;
+    text-align: center;
+    width: 200px;
+}
+
+h2 {
+    color: #444;
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.input-group label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.input-group input {
+    flex: 1;
+    max-width: 200px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.total {
+    text-align: right;
+    margin: 15px 0;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.total strong {
+    font-size: 1.1em;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.savings-goals {
+    margin-top: 15px;
+}
+
+.goal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.goal label {
+    flex: 1;
+}
+
+.goal input {
+    flex: 1;
+    max-width: 150px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.goal-progress {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3a5a80;
+}
+
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+    
+    .paper {
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    button {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .input-group input {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .goal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .goal input {
+        max-width: 100%;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
