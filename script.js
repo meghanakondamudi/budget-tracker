@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetBtn = document.getElementById('reset-btn');
     const printBtn = document.getElementById('print-btn');
     const allocateBtn = document.getElementById('allocate-btn');
+    const downloadBtn = document.getElementById('download-btn');
     
     // Add event listeners to all money inputs
     incomeInputs.forEach(input => {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     resetBtn.addEventListener('click', resetBudget);
     printBtn.addEventListener('click', printBudget);
     allocateBtn.addEventListener('click', allocateSavings);
+    downloadBtn.addEventListener('click', downloadAsImage);
     
     // Load saved data if available
     loadSavedData();
@@ -214,5 +216,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         alert('Savings allocated to goals!');
+    }
+    
+    function downloadAsImage() {
+        // Hide buttons temporarily for the screenshot
+        const buttons = document.querySelectorAll('.actions button');
+        buttons.forEach(button => {
+            button.style.display = 'none';
+        });
+        
+        // Get the paper element
+        const paper = document.querySelector('.paper');
+        
+        // Use html2canvas to capture the element
+        html2canvas(paper, {
+            scale: 2, // Higher quality
+            logging: false,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff'
+        }).then(canvas => {
+            // Show buttons again
+            buttons.forEach(button => {
+                button.style.display = '';
+            });
+            
+            // Create download link
+            const link = document.createElement('a');
+            const month = document.getElementById('month').value || 'budget';
+            link.download = `${month.replace(/\s+/g, '-').toLowerCase()}-budget.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }).catch(err => {
+            console.error('Error generating image:', err);
+            buttons.forEach(button => {
+                button.style.display = '';
+            });
+            alert('Error generating image. Please try again.');
+        });
     }
 });
