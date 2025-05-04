@@ -116,6 +116,7 @@
                 <button id="save-btn">Save Budget</button>
                 <button id="reset-btn">Reset</button>
                 <button id="print-btn">Print</button>
+                <button id="download-btn">Download as Image</button>
             </div>
         </div>
     </div>
