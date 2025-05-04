@@ -1,188 +1,208 @@
+/* Modern Notion-inspired styling */
+:root {
+  --bg-color: #ffffff;
+  --primary-color: #37352f;
+  --secondary-color: #5f5e57;
+  --accent-color: #2eaadc;
+  --hover-color: #f5f5f5;
+  --border-color: #e0e0e0;
+  --card-bg: #f8f8f8;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Add Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-    color: #333;
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-.paper {
-    background-color: white;
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    min-height: 100vh;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.margin {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    padding: 0 20px;
-    min-height: 100vh;
+.header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+.month-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--primary-color);
+  margin: 0 0 10px 0;
 }
 
-.fancy-font {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.5em;
-    border: none;
-    border-bottom: 1px dashed #aaa;
-    text-align: center;
-    width: 200px;
+.month-input {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--accent-color);
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  padding: 5px 0;
+  width: 300px;
+  transition: all 0.2s ease;
+}
+
+.month-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent-color);
+}
+
+.budget-section {
+  margin-bottom: 30px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.budget-section:hover {
+  transform: translateY(-2px);
 }
 
 h2 {
-    color: #444;
-    margin-top: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background-color: var(--accent-color);
+  margin-right: 10px;
+  border-radius: 2px;
 }
 
 .input-group {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .input-group label {
-    flex: 1;
-    font-weight: 500;
+  width: 200px;
+  font-weight: 500;
+  color: var(--secondary-color);
 }
 
-.input-group input {
-    flex: 1;
-    max-width: 200px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-align: right;
+.label-input {
+  font-family: var(--font-main);
+  border: none;
+  border-bottom: 1px dashed var(--border-color);
+  padding: 3px 5px;
+  width: 120px;
+  color: var(--secondary-color);
+}
+
+.label-input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+input[type="number"] {
+  font-family: var(--font-main);
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 150px;
+  transition: all 0.2s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(46, 170, 220, 0.2);
 }
 
 .total {
-    text-align: right;
-    margin: 15px 0;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-top: 15px;
+  border-top: 1px solid var(--border-color);
 }
 
-.total strong {
-    font-size: 1.1em;
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.section {
-    margin-bottom: 30px;
+.button {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  padding: 10px 20px;
+  background-color: white;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.savings-goals {
-    margin-top: 15px;
+.button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-1px);
 }
 
-.goal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
+.button:active {
+  transform: translateY(0);
 }
 
-.goal label {
-    flex: 1;
+.button-primary {
+  background-color: var(--accent-color);
+  color: white;
 }
 
-.goal input {
-    flex: 1;
-    max-width: 150px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-align: right;
+.button-primary:hover {
+  background-color: #1e8fc7;
 }
 
-.goal-progress {
-    width: 50px;
-    text-align: center;
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-.actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #4a6fa5;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #3a5a80;
-}
-
-@media print {
-    body {
-        background-color: white;
-        padding: 0;
-    }
-    
-    .paper {
-        box-shadow: none;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    button {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .input-group {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .input-group input {
-        max-width: 100%;
-        width: 100%;
-        margin-top: 5px;
-    }
-    
-    .goal {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .goal input {
-        max-width: 100%;
-        width: 100%;
-        margin: 5px 0;
-    }
-    
-    .actions {
-        flex-direction: column;
-    }
-    
-    button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .input-group label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+  }
+  
+  .month-input {
+    width: 100%;
+  }
 }
